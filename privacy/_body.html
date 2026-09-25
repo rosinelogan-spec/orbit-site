@@ -1,0 +1,139 @@
+
+<h1>Privacy Policy</h1>
+<p><em>Last updated: September 25, 2026</em></p>
+<p>Orbit (&quot;we&quot;, &quot;the app&quot;) turns your activity, sleep and food data into a daily meal, workout and
+sleep plan. This policy explains what we collect, why, who processes it, and the choices you have.</p>
+<h2>What we collect</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Where it comes from</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Email address, name (optional), password (stored hashed)</td>
+<td>You, when you create an account</td>
+<td>To sign you in</td>
+</tr>
+<tr>
+<td>Sex, age, height, weight, activity level, goal, calorie and macro targets</td>
+<td>You, during setup</td>
+<td>To calculate and show your targets</td>
+</tr>
+<tr>
+<td>Daily health summaries: steps, active calories, resting heart rate, heart rate variability, sleep duration and stages, workouts</td>
+<td>Apple Health (iPhone) or Health Connect (Android), only for the data types you allow</td>
+<td>To build your workout and sleep suggestions and show your trends</td>
+</tr>
+<tr>
+<td>Food log entries, meal groupings and meal photos</td>
+<td>You, when you log food</td>
+<td>To track what you&#39;ve eaten against your targets</td>
+</tr>
+<tr>
+<td>Weigh-ins you log (date and weight)</td>
+<td>You</td>
+<td>To show your weight progress and keep your targets current</td>
+</tr>
+<tr>
+<td>Workouts you log by hand (type, time, duration, optional distance and calories)</td>
+<td>You</td>
+<td>To count them in your plan, trends and achievements</td>
+</tr>
+<tr>
+<td>Achievements you&#39;ve unlocked, and a count of workouts you added to your calendar</td>
+<td>The app</td>
+<td>To show your badges and progress</td>
+</tr>
+<tr>
+<td>Daily plans the app generates</td>
+<td>The app</td>
+<td>To show and keep your plan for the day</td>
+</tr>
+<tr>
+<td>Period days and flow (optional, only if you turn on cycle tracking)</td>
+<td>Apple Health / Health Connect, or days you log in the app</td>
+<td>To show your cycle phase and next period, and to adjust your scores for normal changes across your cycle</td>
+</tr>
+<tr>
+<td>Daily screen time totals (optional, only if you turn on screen time insights)</td>
+<td>Android usage access, or totals you enter</td>
+<td>To compare your phone use with your sleep, steps and HRV</td>
+</tr>
+</tbody></table></div>
+<p><strong>Calendar (optional).</strong> If you turn on &quot;Suggest workout times from my calendar&quot;, the app reads the
+calendars on your phone to find free time for a workout. This happens only on your device: event
+titles, attendees, locations and notes are never uploaded or stored by us. When you ask the in-app
+coach about timing, it receives only today&#39;s busy time ranges (for example &quot;9:00–10:50 AM&quot;), with no
+event details. If you tap &quot;Add&quot;, the app creates a workout event in your calendar.</p>
+<p><strong>Cycle tracking (optional).</strong> Off unless you turn it on. We store only which days were period days
+and the flow level, never notes, symptoms or sexual activity. Predictions are estimates and not for
+contraception. You can delete all cycle data at any time in Profile › Cycle.</p>
+<p><strong>Screen time (optional).</strong> Off unless you turn it on. We store only daily totals (minutes per day and
+minutes after 10pm), never which apps or websites you used. On Android this needs &quot;Usage access&quot;,
+which you can turn off in Settings at any time.</p>
+<p><strong>WHOOP (optional).</strong> If you connect your WHOOP account, WHOOP shares your sleep (including stages),
+Recovery, Strain, HRV, resting heart rate, SpO2, skin temperature and workouts (including heart rate zones)
+with the app through WHOOP&#39;s official API.
+We store your WHOOP access tokens securely on our server (never in the app) and a daily summary of
+that data. Disconnecting in Profile revokes access at WHOOP and deletes the copied data.</p>
+<p><strong>Reminders (optional).</strong> Workout and bedtime reminders are scheduled on your phone only; nothing
+about them is sent to us.</p>
+<p><strong>Oura, Fitbit and Polar (optional).</strong> If you connect one of these accounts, it shares your sleep
+(including stages and sleep score), readiness or recovery, HRV, resting heart rate and workouts with the
+app through the company&#39;s official API. Fitbit data comes through the Google Health API, after you sign in
+with Google and choose what to share. As with WHOOP, access tokens stay on our server, and
+disconnecting deletes the copied data and (where the service supports it) revokes access.</p>
+<p>We only <strong>read</strong> from Apple Health / Health Connect. We never write to them in the released app.</p>
+<h2>How your data is processed</h2>
+<ul>
+<li><strong>Supabase</strong> (our database and authentication provider) stores your account and the data above.
+Each record is only accessible to your own account.</li>
+<li><strong>Google Gemini API</strong>: when you log a meal by photo, the photo is sent to Google&#39;s Gemini API to
+identify the food and estimate portions. We request that Google not store it, and it is not used
+to train Google&#39;s models under Google&#39;s paid API terms.</li>
+<li><strong>Google Gemini API (coach)</strong>: when you message the in-app coach, your messages and a summary of
+your day (goals, today&#39;s plan, recent steps/sleep/workouts, what you&#39;ve eaten, busy time ranges if
+calendar suggestions are on, your cycle phase if cycle tracking is on, and daily screen time totals if
+screen time insights are on) are sent to Gemini to write a reply. No name, email or photos are
+included, and we request that Google not store it.</li>
+<li><strong>WHOOP, Oura, Fitbit, Polar</strong> (only the ones you connect): the app requests your data from that company&#39;s API with your
+permission; we don&#39;t send them any of your other data.</li>
+<li><strong>Resend</strong>: sends account emails (confirming your email address and resetting your password).
+It receives only your email address and the email&#39;s contents.</li>
+<li><strong>USDA FoodData Central</strong>: food names (never photos or personal information) are sent to the USDA&#39;s
+public nutrition database to look up nutrition values.</li>
+</ul>
+<p>We do <strong>not</strong> sell your data, share it with advertisers or data brokers, or use it for advertising.</p>
+<h2>Apple Health and Health Connect</h2>
+<p>Data from Apple Health and Health Connect is used only to provide the app&#39;s features (your plan,
+trends and recommendations). It is not used for advertising or marketing, not sold, and not shared
+with third parties except the service providers above that process it on our behalf.</p>
+<p>Orbit&#39;s use of information received from Health Connect adheres to the
+<a href="https://support.google.com/googleplay/android-developer/answer/12991134">Health Connect Permissions policy</a>,
+including the Limited Use requirements.</p>
+<p>Orbit&#39;s use and transfer of information received from Google APIs (including the Google Health API, used
+for Fitbit) adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+Services User Data Policy</a>, including the Limited Use requirements.</p>
+<p>You can change what the app can read at any time in the Health app (iPhone:
+Settings › Health › Data Access &amp; Devices) or the Health Connect app (Android: App permissions).</p>
+<h2>Retention and deletion</h2>
+<p>We keep your data while your account exists. You can delete your account at any time in the app
+(Profile › Delete account). This permanently deletes your account, profile, food log and meal
+photos, health summaries, weigh-ins, logged workouts, cycle data, screen time totals, wearable data and tokens,
+achievements and plans from our systems. Data stored in Apple Health or Health Connect
+on your phone is not affected.</p>
+<h2>Security</h2>
+<p>Data is encrypted in transit (HTTPS) and access is restricted to your own account by row-level
+security rules in our database.</p>
+<h2>Children</h2>
+<p>Orbit is not intended for children under 13 (or the minimum age in your country), and we don&#39;t
+knowingly collect their data.</p>
+<h2>Health disclaimer</h2>
+<p>The app provides general wellness suggestions, not medical advice. Talk to a healthcare professional
+before making significant changes to your diet or exercise.</p>
+<h2>Changes and contact</h2>
+<p>We&#39;ll update this page if our practices change and note the date above.
+Questions or requests: <strong><a href="mailto:support@orbitrecovery.app">support@orbitrecovery.app</a></strong></p>
