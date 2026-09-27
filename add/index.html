@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join me on Orbit</title>
+<meta name="description" content="A friend invited you to compete on Orbit.">
+<meta name="theme-color" content="#06070a">
+<meta property="og:title" content="Join me on Orbit">
+<meta property="og:description" content="A friend invited you to compete on Orbit.">
+<meta property="og:image" content="https://orbitrecovery.app/icon.png">
+<meta property="og:url" content="https://orbitrecovery.app/add/">
+<link rel="icon" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../icon.png" alt="">Orbit</a>
+  <nav class="nav"><a href="../" aria-current="page">Home</a><a href="../privacy/">Privacy</a><a href="../support/">Support</a></nav>
+</div></header>
+
+<main class="doc" style="text-align:center">
+  <h1 style="text-align:center">You’re invited 🏆</h1>
+  <p>A friend wants to compete with you on Orbit: weekly goals and sleep leaderboards.</p>
+  <p style="margin:28px 0 8px;color:var(--muted)">Friend code</p>
+  <p id="code" style="font-size:40px;font-weight:800;letter-spacing:8px;margin:0">······</p>
+  <div class="cta" style="margin-top:28px">
+    <a class="btn btn-primary" id="open" href="healthapp://friends">Open in Orbit</a>
+    <a class="btn btn-ghost" href="mailto:support@orbitrecovery.app?subject=Orbit%20beta">Don’t have Orbit? Join the beta</a>
+  </div>
+  <p class="note" style="margin-top:20px">Already have Orbit? Tap Open in Orbit, or go to Friends and enter the code.</p>
+</main>
+<script>
+  const code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+  if (code) {
+    document.getElementById('code').textContent = code;
+    const link = 'healthapp://friends?code=' + code;
+    document.getElementById('open').href = link;
+    // Try the app straight away; if it isn't installed the page just stays here.
+    setTimeout(() => { location.href = link; }, 300);
+  }
+</script>
+<footer><div class="wrap">
+  <span>© 2026 Orbit · Health &amp; Recovery</span>
+  <nav><a href="../privacy/" aria-current="page">Privacy</a><a href="../support/" aria-current="page">Support</a><a href="mailto:support@orbitrecovery.app">Contact</a></nav>
+</div></footer>
+</body>
+</html>

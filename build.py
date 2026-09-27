@@ -132,6 +132,36 @@ def support():
 </main>""", "support")
 
 
-for path, html in [("index.html", home()), ("privacy/index.html", privacy()), ("support/index.html", support())]:
+def add_friend():
+    return page("add/index.html", "Join me on Orbit", "A friend invited you to compete on Orbit.", f"""
+<main class="doc" style="text-align:center">
+  <h1 style="text-align:center">You’re invited 🏆</h1>
+  <p>A friend wants to compete with you on Orbit: weekly goals and sleep leaderboards.</p>
+  <p style="margin:28px 0 8px;color:var(--muted)">Friend code</p>
+  <p id="code" style="font-size:40px;font-weight:800;letter-spacing:8px;margin:0">······</p>
+  <div class="cta" style="margin-top:28px">
+    <a class="btn btn-primary" id="open" href="healthapp://friends">Open in Orbit</a>
+    <a class="btn btn-ghost" href="{BETA_URL}">Don’t have Orbit? Join the beta</a>
+  </div>
+  <p class="note" style="margin-top:20px">Already have Orbit? Tap Open in Orbit, or go to Friends and enter the code.</p>
+</main>
+<script>
+  const code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+  if (code) {{
+    document.getElementById('code').textContent = code;
+    const link = 'healthapp://friends?code=' + code;
+    document.getElementById('open').href = link;
+    // Try the app straight away; if it isn't installed the page just stays here.
+    setTimeout(() => {{ location.href = link; }}, 300);
+  }}
+</script>""", "")
+
+
+for path, html in [
+    ("index.html", home()),
+    ("privacy/index.html", privacy()),
+    ("support/index.html", support()),
+    ("add/index.html", add_friend()),
+]:
     open(path, "w").write(html)
 print("built")
