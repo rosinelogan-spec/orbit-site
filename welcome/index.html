@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Welcome to Orbit</title>
+<meta name="description" content="Your Orbit subscription is ready.">
+<meta name="theme-color" content="#06070a">
+<meta property="og:title" content="Welcome to Orbit">
+<meta property="og:description" content="Your Orbit subscription is ready.">
+<meta property="og:image" content="https://orbitrecovery.app/icon.png">
+<meta property="og:url" content="https://orbitrecovery.app/welcome/">
+<link rel="icon" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../icon.png" alt="">Orbit</a>
+  <nav class="nav"><a href="../" aria-current="page">Home</a><a href="../privacy/">Privacy</a><a href="../support/">Support</a></nav>
+</div></header>
+
+<main class="doc" style="text-align:center">
+  <h1 id="title" style="text-align:center">You’re all set 🎉</h1>
+  <p id="text">Your Orbit subscription is ready. Head back to the app to get started.</p>
+  <div class="cta" style="margin-top:28px;justify-content:center">
+    <a class="btn btn-primary" href="healthapp://">Open Orbit</a>
+  </div>
+  <p class="note" style="margin-top:20px">If Orbit still shows the plans screen, tap “Already paid on the website? Tap to refresh”.</p>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.has('canceled')) {
+    document.getElementById('title').textContent = 'No charge made';
+    document.getElementById('text').textContent = 'Checkout was cancelled. You can go back to Orbit and choose a plan whenever you’re ready.';
+  } else if (q.has('manage')) {
+    document.getElementById('title').textContent = 'Billing updated';
+    document.getElementById('text').textContent = 'Your changes are saved. Head back to Orbit.';
+  }
+</script>
+<footer><div class="wrap">
+  <span>© 2026 Orbit · Health &amp; Recovery</span>
+  <nav><a href="../privacy/" aria-current="page">Privacy</a><a href="../terms/" aria-current="page">Terms</a><a href="../support/" aria-current="page">Support</a><a href="mailto:support@orbitrecovery.app">Contact</a></nav>
+</div></footer>
+</body>
+</html>

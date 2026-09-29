@@ -1,4 +1,4 @@
-"""Builds the three pages from shared parts. Run: python3 build.py"""
+"""Builds the site pages from shared parts. Run: python3 build.py"""
 import math
 
 DESC = "Orbit turns your sleep, recovery and activity into a clear plan for today."
@@ -34,7 +34,7 @@ def page(path, title, description, body, current=""):
 {body}
 <footer><div class="wrap">
   <span>© 2026 Orbit · Health &amp; Recovery</span>
-  <nav>{nav('privacy/', 'Privacy', '')}{nav('support/', 'Support', '')}<a href="mailto:support@orbitrecovery.app">Contact</a></nav>
+  <nav>{nav('privacy/', 'Privacy', '')}{nav('terms/', 'Terms', '')}{nav('support/', 'Support', '')}<a href="mailto:support@orbitrecovery.app">Contact</a></nav>
 </div></footer>
 </body>
 </html>
@@ -132,6 +132,34 @@ def support():
 </main>""", "support")
 
 
+def terms():
+    body = open("terms/_body.html").read()
+    return page("terms/index.html", "Terms of Use · Orbit", "The terms for using Orbit, including subscriptions and free trials.", f'<main class="doc">{body}</main>', "terms")
+
+
+def welcome():
+    # Where Stripe sends people after website checkout (and after the billing page).
+    return page("welcome/index.html", "Welcome to Orbit", "Your Orbit subscription is ready.", """
+<main class="doc" style="text-align:center">
+  <h1 id="title" style="text-align:center">You’re all set 🎉</h1>
+  <p id="text">Your Orbit subscription is ready. Head back to the app to get started.</p>
+  <div class="cta" style="margin-top:28px;justify-content:center">
+    <a class="btn btn-primary" href="healthapp://">Open Orbit</a>
+  </div>
+  <p class="note" style="margin-top:20px">If Orbit still shows the plans screen, tap “Already paid on the website? Tap to refresh”.</p>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.has('canceled')) {
+    document.getElementById('title').textContent = 'No charge made';
+    document.getElementById('text').textContent = 'Checkout was cancelled. You can go back to Orbit and choose a plan whenever you’re ready.';
+  } else if (q.has('manage')) {
+    document.getElementById('title').textContent = 'Billing updated';
+    document.getElementById('text').textContent = 'Your changes are saved. Head back to Orbit.';
+  }
+</script>""", "")
+
+
 def add_friend():
     return page("add/index.html", "Join me on Orbit", "A friend invited you to compete on Orbit.", f"""
 <main class="doc" style="text-align:center">
@@ -162,6 +190,8 @@ for path, html in [
     ("privacy/index.html", privacy()),
     ("support/index.html", support()),
     ("add/index.html", add_friend()),
+    ("terms/index.html", terms()),
+    ("welcome/index.html", welcome()),
 ]:
     open(path, "w").write(html)
 print("built")
