@@ -78,7 +78,7 @@ def pricing():
     )
     return f"""
   <section id="pricing"><div class="wrap">
-    <div class="section-head"><h2>Simple pricing, everything included</h2><p>Every plan unlocks all of Orbit: scores, food logging, the coach, journal insights and friends. Annual plans start with 2 weeks free.</p></div>
+    <div class="section-head"><h2>Simple pricing, everything included</h2><p>Every plan unlocks all of Orbit: scores, food logging, the coach, journal insights and groups. Annual plans start with 2 weeks free.</p></div>
     <div class="plans">{cards}</div>
     <p class="plans-note">Prices in USD. Subscriptions renew automatically until you cancel; one free trial per person. See our <a href="terms/">Terms of Use</a>. Free for beta testers.</p>
   </div></section>"""
@@ -188,32 +188,33 @@ def welcome():
 
 
 def add_friend():
-    return page("add/index.html", "Join me on Orbit", "A friend invited you to compete on Orbit.", f"""
+    return page("add/index.html", "Join my group on Orbit", "You've been invited to a group on Orbit.", f"""
 <main class="doc" style="text-align:center">
-  <h1 style="text-align:center">You’re invited 🏆</h1>
-  <p id="lede">A friend wants to compete with you on Orbit: weekly leaderboards for recovery, sleep, steps and workouts.</p>
-  <p id="label" style="margin:28px 0 8px;color:var(--muted)">Friend code</p>
+  <h1 style="text-align:center">Join my group 👥</h1>
+  <p id="lede">You’ve been invited to a group on Orbit: one weekly leaderboard for recovery, sleep, steps and workouts.</p>
+  <p id="label" style="margin:28px 0 8px;color:var(--muted)">Group code</p>
   <p id="code" style="font-size:40px;font-weight:800;letter-spacing:8px;margin:0">······</p>
   <div class="cta" style="margin-top:28px">
-    <a class="btn btn-primary" id="open" href="healthapp://friends">Open in Orbit</a>
+    <a class="btn btn-primary" id="open" href="healthapp://groups">Open in Orbit</a>
     <a class="btn btn-ghost" href="{BETA_URL}">Don’t have Orbit? Join the beta</a>
   </div>
-  <p id="hint" class="note" style="margin-top:20px">Already have Orbit? Tap Open in Orbit, or go to Friends and enter the code.</p>
+  <p id="hint" class="note" style="margin-top:20px">Already have Orbit? Tap Open in Orbit, or go to Profile › Groups and enter the code.</p>
 </main>
 <script>
   const q = new URLSearchParams(location.search);
   const clean = (v) => (v || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
   const group = clean(q.get('group'));
-  const code = group || clean(q.get('code'));
+  const code = group;
   if (group) {{
     document.querySelector('h1').textContent = 'Join my group 👥';
     document.getElementById('lede').textContent = 'You’ve been invited to a group on Orbit: one weekly leaderboard for recovery, sleep, steps and workouts.';
     document.getElementById('label').textContent = 'Group code';
-    document.getElementById('hint').textContent = 'Already have Orbit? Tap Open in Orbit, or go to Friends › Groups and enter the code.';
+    document.getElementById('hint').textContent = 'Already have Orbit? Tap Open in Orbit, or go to Profile › Groups and enter the code.';
   }}
   if (code) {{
     document.getElementById('code').textContent = code;
-    const link = group ? 'healthapp://groups?join=' + code : 'healthapp://friends?code=' + code;
+    // Old friend links (?code=) just open Groups: friends were replaced by groups.
+    const link = group ? 'healthapp://groups?join=' + code : 'healthapp://groups';
     document.getElementById('open').href = link;
     // Try the app straight away; if it isn't installed the page just stays here.
     setTimeout(() => {{ location.href = link; }}, 300);
